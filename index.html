@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قصي الشريف - مهندس برمجيات فلسطيني </title>
+    <meta name="description" content="قصي الشريف - مهندس برمجيات فلسطيني طموح ورجل أعمال ناشئ">
+    <meta name="keywords" content="قصي الشريف, فلسطين, مهندس برمجيات, توجيهي, الخليل">
+    <title>قصي الشريف - مهندس برمجيات فلسطيني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+        
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f59e0b;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
         
         * {
             margin: 0;
@@ -15,181 +33,416 @@
         }
         
         body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
         
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 40px 0;
+            padding: 60px 0 80px;
             text-align: center;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+            clip-path: ellipse(100% 100% at 50% 0%);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #f8fafc;
+            clip-path: ellipse(100% 100% at 50% 0%);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
         }
         
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-            transition: transform 0.3s;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            transform: scale(1);
         }
         
-        .profile-img:hover {
+        .profile-img-container:hover .profile-img {
             transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
+            font-weight: 900;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             opacity: 0.9;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         
         .social-links a {
             color: white;
-            background: rgba(255, 255, 255, 0.2);
-            width: 40px;
-            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .social-links a:hover::before {
+            left: 100%;
         }
         
         .social-links a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
+        /* Social media colors */
+        .social-links a:nth-child(1) { background: #1877f2; } /* Facebook */
+        .social-links a:nth-child(2) { background: #25d366; } /* WhatsApp */
+        .social-links a:nth-child(3) { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); } /* Instagram */
+        .social-links a:nth-child(4) { background: #000; } /* TikTok */
+        
+        /* Main Content */
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
         
         .card {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: var(--border-radius);
+            padding: 35px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
+            transition: var(--transition);
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover::before {
+            width: 8px;
+            background: var(--secondary-color);
         }
         
         h2 {
-            color: #2a5298;
-            margin-bottom: 20px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
             font-size: 1.8rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            font-weight: 700;
         }
         
         h2::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #2a5298;
-            border-radius: 3px;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
         }
         
         p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 1.1rem;
+            color: var(--dark-color);
+            line-height: 1.8;
         }
         
         .info-item {
             display: flex;
-            margin-bottom: 15px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         
         .info-item i {
             margin-left: 15px;
-            color: #2a5298;
-            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
             margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .info-item div {
+            flex-grow: 1;
+        }
+        
+        .info-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+        
+        .info-item span {
+            color: var(--gray-color);
+            font-size: 0.95rem;
         }
         
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 25px;
         }
         
         .skill {
             background: #eef2ff;
-            color: #2a5298;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            color: var(--primary-color);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 1px solid rgba(37, 99, 235, 0.2);
         }
         
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #2a5298;
+        .skill:hover {
+            background: var(--primary-color);
             color: white;
-            border-radius: 20px 20px 0 0;
-            margin-top: 50px;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 70px 0 40px;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+            clip-path: ellipse(100% 100% at 50% 100%);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #f8fafc;
+            clip-path: ellipse(100% 100% at 50% 100%);
+            z-index: 1;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        footer h2::after {
+            background: linear-gradient(90deg, var(--secondary-color), white);
+            right: auto;
+            left: 0;
+            width: 120px;
+            margin: 0 auto;
+        }
+        
+        footer p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
         
         .contact-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: white;
-            color: #2a5298;
-            padding: 12px 30px;
-            border-radius: 30px;
+            color: var(--primary-color);
+            padding: 15px 35px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            margin-top: 20px;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            border: 2px solid transparent;
+            font-size: 1.1rem;
+        }
+        
+        .contact-btn i {
+            margin-left: 10px;
+            font-size: 1.2rem;
         }
         
         .contact-btn:hover {
-            background: #f8f9fa;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: transparent;
+            color: white;
+            border-color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        .animate-delay-4 { animation-delay: 0.8s; }
+        
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
+            header {
+                padding: 50px 0 70px;
+                margin-bottom: 40px;
             }
             
             h1 {
@@ -199,111 +452,153 @@
             .title {
                 font-size: 1.1rem;
             }
+            
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
         }
-        .social-links a i {
-    font-size: 20px;
-    margin: 0 10px;
-    transition: 0.3s;
-}
-
-/* Facebook */
-.social-links a:nth-child(1) i {
-    color: #1877f2;
-}
-
-/* WhatsApp */
-.social-links a:nth-child(2) i {
-    color: #25d366;
-}
-
-/* Instagram */
-.social-links a:nth-child(3) i {
-    color: #e4405f;
-}
-
-/* TikTok - gradient-like dual color using text-shadow */
-.social-links a:nth-child(4) i {
-    color: #000;
-    text-shadow:
-        1px 1px 0 #25f4ee,   /* الأزرق */
-       -1px -1px 0 #fe2c55;  /* الأحمر */
-}
-        </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 40px 0 60px;
+                clip-path: ellipse(150% 100% at 50% 0%);
+            }
+            
+            header::before {
+                clip-path: ellipse(150% 100% at 50% 0%);
+            }
+            
+            footer {
+                clip-path: ellipse(150% 100% at 50% 100%);
+            }
+            
+            footer::before {
+                clip-path: ellipse(150% 100% at 50% 100%);
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .contact-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Particles Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
     <header>
         <div class="container">
-            <img src="https://i.postimg.cc/4y3Phhb5/IMG-7367.jpg" alt="قصي الشريف" class="profile-img">
-            <h1>قصي الشريف</h1>
-            <p class="title">رجل أعمال ناشئ | طالب ثانوية عامة | فلسطيني طموح</p>
-            <div class="social-links">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-whatsapp"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-tiktok"></i></a>
-</div>
-</body>
-</html>
-
-</body>
-</html>
-
-</body>
-</html>
+            <div class="header-content">
+                <div class="profile-img-container">
+                    <img src="https://i.postimg.cc/4y3Phhb5/IMG-7367.jpg" alt="قصي الشريف" class="profile-img floating">
+                </div>
+                <h1 class="animate__animated animate__fadeInDown">قصي الشريف</h1>
+                <p class="title animate__animated animate__fadeInDown animate-delay-1">رجل أعمال ناشئ | طالب ثانوية عامة | فلسطيني طموح</p>
+                <div class="social-links animate__animated animate__fadeInUp animate-delay-2">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
         </div>
     </header>
     
     <div class="container">
         <div class="main-content">
-            <div class="card">
+            <div class="card animate__animated animate__fadeInLeft">
                 <h2>نبذة عني</h2>
                 <p>مرحباً بكم، أنا قصي الشريف، شاب فلسطيني طموح من مدينة الخليل، أبلغ من العمر 18 عاماً وأدرس حالياً في الصف الثاني عشر (التوجيهي) بمدرسة الخليل الثانوية الصناعيه .</p>
                 <p>أنا شخص مجتهد ومتفوق دراسياً، معروف بين زملائي ومعلميني بالذكاء وحسن الخلق والالتزام. أحب التعلم واكتساب المهارات الجديدة وأطمح لأن أصبح مهندس برمجيات ناجحاً في المستقبل.</p>
                 <p>أؤمن بأن النجاح هو ثمرة العمل الجاد والصبر، وأن الأحلام الكبيرة تبدأ بخطوات صغيرة ولكن ثابتة. أحب مساعدة الآخرين وأحرص دائماً على الالتزام بالأخلاق الحميدة والقيم الإنسانية.</p>
             </div>
             
-            <div class="card">
+            <div class="card animate__animated animate__fadeInRight">
                 <h2>معلومات شخصية</h2>
                 <div class="info-item">
                     <i class="fas fa-user"></i>
                     <div>
-                        <strong>الاسم الكامل:</strong> قصي زياد الشريف
+                        <strong>الاسم الكامل:</strong>
+                        <span>قصي زياد الشريف</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
-                        <strong>العنوان:</strong> الخليل، فلسطين
+                        <strong>العنوان:</strong>
+                        <span>الخليل، فلسطين</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-birthday-cake"></i>
                     <div>
-                        <strong>العمر:</strong> 18 عاماً
+                        <strong>العمر:</strong>
+                        <span>18 عاماً</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-graduation-cap"></i>
                     <div>
-                        <strong>المستوى التعليمي:</strong> ثانوية عامة (توجيهي)
+                        <strong>المستوى التعليمي:</strong>
+                        <span>ثانوية عامة (توجيهي)</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
                     <div>
-                        <strong>رقم الهاتف:</strong> 0566572007
+                        <strong>رقم الهاتف:</strong>
+                        <span>0566572007</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
                     <div>
-                        <strong>البريد الإلكتروني:</strong> qshareef86@gmail.com
+                        <strong>البريد الإلكتروني:</strong>
+                        <span>qshareef86@gmail.com</span>
                     </div>
                 </div>
             </div>
             
-            <div class="card">
+            <div class="card animate__animated animate__fadeInLeft animate-delay-1">
                 <h2>المهارات والصفات</h2>
                 <p>أتمتع بالعديد من المهارات والصفات التي تميزني:</p>
                 <div class="skills">
@@ -320,7 +615,7 @@
                 <p style="margin-top: 20px;">أنا شخص مؤدب يحترم الكبير ويحن على الصغير، أحب التعاون مع الآخرين وأسعى دائماً لتحقيق التميز في كل ما أفعله. أعتبر نفسي شخصاً طموحاً لا يعرف المستحيل، وأؤمن بقدرتي على تحقيق أحلامي رغم كل التحديات.</p>
             </div>
             
-            <div class="card">
+            <div class="card animate__animated animate__fadeInRight animate-delay-1">
                 <h2>الطموحات المستقبلية</h2>
                 <p>أطمح بعد إنهاء مرحلة الثانوية العامة إلى دراسة تخصص هندسة البرمجيات أو علم الحاسوب في جامعة مرموقة، لتطوير مهاراتي في عالم البرمجه.</p>
                 <p>هدفي أن أصبح مبرمجاً ناجحاً أسس مشاريع برمجيه وحلول تقنيه تخلق بيئة تطوير وترفع من مستوى البرمجه في مجتمعي في فلسطين.</p>
@@ -332,11 +627,67 @@
     
     <footer>
         <div class="container">
-            <h2>تواصل معي</h2>
-            <p>أنا دائماً متحمس للتعرف على أشخاص جدد وتبادل الأفكار والخبرات. لا تتردد في التواصل معي!</p>
-            <a href="tel:0566572007" class="contact-btn">اتصل بي الآن</a>
-            <p style="margin-top: 30px;">&copy; 2025 قصي الشريف - جميع الحقوق محفوظة</p>
+            <div class="footer-content">
+                <h2 class="animate__animated animate__fadeIn">تواصل معي</h2>
+                <p class="animate__animated animate__fadeIn animate-delay-1">أنا دائماً متحمس للتعرف على أشخاص جدد وتبادل الأفكار والخبرات. لا تتردد في التواصل معي!</p>
+                <a href="tel:0566572007" class="contact-btn animate__animated animate__fadeInUp animate-delay-2">
+                    <i class="fas fa-phone"></i> اتصل بي الآن
+                </a>
+                <p class="copyright animate__animated animate__fadeIn animate-delay-3">&copy; 2025 قصي الشريف - جميع الحقوق محفوظة</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Particles Effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 5px
+                const size = Math.random() * 3 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Animation
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s ease-in-out infinite`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Animate elements when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.card, footer h2, footer p, .contact-btn, .copyright');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            };
+            
+            // Initial check
+            animateOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
 </body>
 </html>
